@@ -1,0 +1,11 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+<BaseLayout title="关于机场岛" description="了解机场岛的内容原则、测试方法与利益关系披露。">
+  <header class="simple-hero"><div class="container"><span class="eyebrow">ABOUT THE WEIRD ISLAND</span><h1>我们不当裁判。<br/><i>我们当安检员。</i></h1><p>机场岛是一个中文网络工具内容项目。目标不是替你做决定，而是把决定需要的信息摆上桌。</p></div></header>
+  <section class="section"><div class="container values"><article><b>01</b><h2>可复核</h2><p>重要结论尽量附测试日期、环境、套餐和场景。无法复核的主观体验，会明确写成主观体验。</p></article><article><b>02</b><h2>会过期</h2><p>网络服务变化很快。文章显示更新时间，品牌页保留复测状态，旧结论不假装永恒。</p></article><article><b>03</b><h2>讲利益</h2><p>如果文章包含赞助、试用账号或推广链接，应在显眼位置披露。商业关系不能伪装成路人偶遇。</p></article></div></section>
+  <section class="section dark"><div class="container prose"><h2>内容边界</h2><p>我们提供产品信息、技术常识与使用经验，不鼓励任何违法违规用途。读者应了解并遵守所在地法律、服务条款与组织规定。</p><h2>这个底座能长成什么</h2><ul><li>评测文章与年度复测记录</li><li>品牌词落地页与价格追踪</li><li>教程、故障排查与术语库</li><li>横向对比、预算榜单与专题聚合</li><li>RSS、站点地图和结构化数据</li></ul></div></section>
+</BaseLayout>
+<style>
+  .simple-hero{padding:80px 0;border-bottom:var(--line);background:var(--lime)}h1{margin:18px 0;font-size:clamp(3.2rem,8vw,8rem);line-height:.9;letter-spacing:-.07em}h1 i{font-style:normal;background:var(--orange)}.simple-hero p{max-width:720px;font-size:1.2rem;font-weight:600}.values{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.values article{padding:26px;border:var(--line);background:white;box-shadow:var(--shadow)}.values b{font:900 3.5rem 'IBM Plex Mono';color:var(--orange)}.values h2{font-size:2rem;margin:10px 0}.dark{background:var(--ink);color:var(--paper)}.dark .prose{max-width:800px}.dark .prose p,.dark .prose li{color:#c7c1b6}@media(max-width:700px){.values{grid-template-columns:1fr}}
+</style>

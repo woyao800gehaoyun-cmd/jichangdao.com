@@ -1,0 +1,9 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CategoryIndex from '@/components/CategoryIndex.astro';
+const entries = await getCollection('compare');
+---
+<BaseLayout title="机场横向对比" description="按预算、用途和线路横向对比机场服务，帮你减少无效选择。">
+  <CategoryIndex title="擂台对比" eyebrow="同一把尺，现场开打" description="价格接近，到底差在哪？我们把候选项放进同一套场景里横向比，不靠印象流，也不把不同套餐硬凑成伪公平。" tone="pink" entries={entries} base="compare" />
+</BaseLayout>

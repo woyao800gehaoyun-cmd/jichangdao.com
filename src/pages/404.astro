@@ -1,0 +1,7 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+<BaseLayout title="页面失联" description="这个页面可能被改名、搬走或吞进了安检机。" noindex={true}>
+  <section class="lost"><div class="container"><b class="mono">404</b><h1>你的页面<br/>误机了。</h1><p>它可能换了登机口，也可能根本没买票。</p><div><a class="button" href="/">回到候机厅</a><a class="button light" href="/reviews">翻评测档案</a></div></div></section>
+</BaseLayout>
+<style>.lost{min-height:70vh;display:grid;place-items:center;padding:60px 0;background:var(--pink);border-bottom:var(--line)}.lost b{font-size:1rem;border:var(--line);background:var(--paper);padding:6px 12px}.lost h1{font-size:clamp(4rem,11vw,10rem);line-height:.78;letter-spacing:-.09em;margin:35px 0}.lost p{font-size:1.2rem;font-weight:700}.lost div div{display:flex;gap:12px;flex-wrap:wrap}</style>

@@ -1,0 +1,9 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CategoryIndex from '@/components/CategoryIndex.astro';
+const entries = await getCollection('guides');
+---
+<BaseLayout title="机场使用教程" description="从订阅导入、客户端配置到故障排查的中文教程，新手也能看懂。">
+  <CategoryIndex title="逃生教程" eyebrow="按钮在哪也给你圈出来" description="配置、订阅、客户端、流媒体和故障排查。尽量不用神秘缩写把人吓跑，实在要用，就当场翻译成人话。" tone="lime" entries={entries} base="guides" />
+</BaseLayout>

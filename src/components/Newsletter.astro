@@ -1,0 +1,27 @@
+<section class="newsletter">
+  <div>
+    <span class="eyebrow">每周一次 · 无废话</span>
+    <h2>订阅《岛民通缉令》</h2>
+    <p>新评测、价格异动、跑路预警和我们本周踩到的坑。邮箱不会被卖掉，毕竟它也卖不上价。</p>
+  </div>
+  <form action="#" method="post">
+    <label class="sr-only" for="email">邮箱地址</label>
+    <input id="email" name="email" type="email" placeholder="你的邮箱（别写老板的）" required />
+    <button class="button" type="submit">申请登岛 →</button>
+    <small>演示表单：接入 Buttondown、ConvertKit 或自有 API 后即可使用。</small>
+  </form>
+</section>
+
+<style>
+  .newsletter { position: relative; display: grid; grid-template-columns: 1.3fr 1fr; gap: 45px; padding: clamp(28px,5vw,58px); border: var(--line); border-radius: 18px; background: var(--orange); box-shadow: 8px 8px 0 var(--ink); overflow: hidden; }
+  .newsletter::after { content:'@'; position:absolute; right:-20px; top:-65px; font:900 14rem/1 'IBM Plex Mono'; opacity:.11; transform:rotate(12deg); }
+  h2 { margin: 10px 0; font-size: clamp(2.1rem,4.5vw,4.4rem); line-height: .95; letter-spacing: -.06em; }
+  p { max-width: 620px; font-weight: 600; }
+  form { position: relative; z-index: 2; align-self: center; }
+  input { width:100%; height:56px; border:var(--line); border-radius:10px; background:var(--paper); padding:0 16px; margin-bottom:12px; outline:none; }
+  input:focus { box-shadow: 0 0 0 4px var(--lime); }
+  button { width:100%; }
+  small { display:block; margin-top:10px; font-size:.7rem; }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+  @media(max-width:760px){.newsletter{grid-template-columns:1fr;gap:18px;}}
+</style>

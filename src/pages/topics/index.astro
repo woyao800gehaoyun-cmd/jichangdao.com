@@ -1,0 +1,16 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+const topics=[
+  {no:'01',title:'2026 新手登岛包',desc:'从“机场是什么”到完成第一次订阅导入，按顺序读完就能少踩一轮坑。',count:6,color:'var(--lime)',href:'/guides/beginner-checklist'},
+  {no:'02',title:'晚高峰照妖镜',desc:'只谈 19:00–23:00 的延迟、丢包和波动，白天的盛世美颜先放一边。',count:8,color:'var(--orange)',href:'/guides/how-we-test'},
+  {no:'03',title:'每月 20 元擂台',desc:'固定预算下比稳定性、流量和售后，不用法拉利价格欺负小电驴。',count:5,color:'var(--pink)',href:'/compare/budget-showdown'},
+  {no:'04',title:'客户端急救箱',desc:'订阅失败、节点全红、能连不能开网页：先别砸电脑，按症状排查。',count:7,color:'var(--blue)',href:'/guides/subscription-rescue'}
+];
+---
+<BaseLayout title="机场专题" description="围绕新手、预算、晚高峰和故障排查组织的中文机场内容专题。">
+  <header class="topic-hero"><div class="container"><span class="eyebrow">把散文装进有用的文件夹</span><h1>专题雷达</h1><p>单篇文章解决一个问题，专题页解决一整串问题。这里是后续承载季度榜单、预算合集、节日观察与人群指南的位置。</p></div></header>
+  <section class="section"><div class="container topic-grid">{topics.map(t=><a class="topic" href={t.href} style={`--tone:${t.color}`}><span class="mono">TOPIC / {t.no}</span><div class="orbit"><i></i><b>{t.count}</b><small>篇路线文章</small></div><h2>{t.title}</h2><p>{t.desc}</p><strong>进入专题 →</strong></a>)}</div></section>
+</BaseLayout>
+<style>
+  .topic-hero{padding:78px 0;border-bottom:var(--line);background:var(--ink);color:var(--paper)}.topic-hero .eyebrow::before{background:var(--orange)}h1{margin:18px 0;font-size:clamp(4rem,10vw,9rem);line-height:.85;letter-spacing:-.08em}.topic-hero p{max-width:720px;color:#bbb5aa;font-size:1.15rem}.topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}.topic{position:relative;min-height:410px;padding:28px;border:var(--line);background:var(--tone);box-shadow:var(--shadow);overflow:hidden;transition:.2s}.topic:hover{transform:translate(-4px,-4px);box-shadow:10px 10px 0 var(--ink)}.topic>span{font-size:.7rem;font-weight:700}.orbit{position:absolute;right:-50px;top:-55px;display:grid;place-items:center;width:220px;height:220px;border:2px dashed;border-radius:50%}.orbit::before{content:'';position:absolute;inset:35px;border:2px solid;border-radius:50%}.orbit i{position:absolute;width:16px;height:16px;left:24px;bottom:30px;border:var(--line);border-radius:50%;background:var(--paper)}.orbit b{font:900 3.5rem 'IBM Plex Mono';z-index:1}.orbit small{position:absolute;top:140px;font-weight:800}.topic h2{max-width:60%;margin:140px 0 12px;font-size:2.2rem;line-height:1.05}.topic p{max-width:80%;color:#36332e}.topic strong{position:absolute;left:28px;bottom:25px}.topic:hover strong{text-decoration:underline;text-decoration-thickness:3px}@media(max-width:750px){.topic-grid{grid-template-columns:1fr}.topic{min-height:370px}}
+</style>

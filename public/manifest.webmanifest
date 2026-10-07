@@ -1,0 +1,9 @@
+{
+  "name": "机场岛",
+  "short_name": "机场岛",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f0e6",
+  "theme_color": "#d8ff3e",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

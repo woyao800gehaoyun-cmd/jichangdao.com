@@ -1,0 +1,51 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  category: string;
+  date: Date;
+  readingMinutes: number;
+  accent?: 'orange' | 'lime' | 'pink' | 'blue';
+  score?: number;
+}
+const { href, title, description, category, date, readingMinutes, accent = 'orange', score } = Astro.props;
+const colors = { orange: 'var(--orange)', lime: 'var(--lime)', pink: 'var(--pink)', blue: 'var(--blue)' };
+---
+<article class="card article-card" style={`--accent:${colors[accent]}`}>
+  <a href={href} aria-label={title}>
+    <div class="visual">
+      <span class="category">{category}</span>
+      <span class="flight mono">JC-{String(title.length * 37).padStart(3,'0')}</span>
+      <div class="radar" aria-hidden="true"><i></i><b>{score ? score.toFixed(1) : '??'}</b></div>
+      <span class="scribble" aria-hidden="true">✦</span>
+    </div>
+    <div class="card-pad">
+      <div class="meta mono"><time datetime={date.toISOString()}>{date.toLocaleDateString('zh-CN')}</time><span>读 {readingMinutes} 分钟</span></div>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <span class="read">打开档案 <b>→</b></span>
+    </div>
+  </a>
+</article>
+
+<style>
+  .article-card { height: 100%; }
+  .article-card > a { display: flex; height: 100%; flex-direction: column; }
+  .visual { position: relative; min-height: 185px; padding: 18px; border-bottom: var(--line); background: var(--accent); overflow: hidden; }
+  .visual::before { content: ''; position: absolute; width: 220px; height: 220px; border: 2px dashed var(--ink); border-radius: 50%; right: -70px; bottom: -120px; }
+  .visual::after { content: ''; position: absolute; width: 90%; height: 2px; left: 5%; top: 50%; background: var(--ink); transform: rotate(-11deg); }
+  .category,.flight { position: relative; z-index: 2; display: inline-block; padding: 6px 9px; border: 1.5px solid var(--ink); background: var(--paper); font-weight: 900; }
+  .flight { float: right; font-size: .7rem; }
+  .radar { position: absolute; z-index: 2; width: 112px; height: 112px; left: 50%; top: 51%; transform: translate(-50%,-50%); display: grid; place-items: center; border: var(--line); border-radius: 50%; background: var(--paper); box-shadow: 5px 5px 0 var(--ink); }
+  .radar::before,.radar::after { content:''; position:absolute; border: 1.5px solid; border-radius: 50%; inset: 12px; }
+  .radar::after { inset: 28px; }
+  .radar i { position: absolute; width: 45%; height: 2px; left: 50%; background: var(--orange); transform-origin: left; transform: rotate(-35deg); }
+  .radar b { z-index: 1; font: 900 1.9rem 'IBM Plex Mono',monospace; background: var(--paper); padding: 0 3px; }
+  .scribble { position: absolute; right: 15px; bottom: 5px; font-size: 3.5rem; transform: rotate(15deg); }
+  .meta { display: flex; justify-content: space-between; color: var(--muted); font-size: .72rem; }
+  .article-card h3 { font-size: 1.48rem; }
+  .article-card p { margin-bottom: 22px; }
+  .read { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1.5px dashed; font-weight: 800; }
+  .read b { font-size: 1.4rem; }
+</style>

@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/data/site';
+---
+<BaseLayout title="联系与勘误" description="向机场岛提交内容勘误、复测线索或合作说明。">
+  <section class="section"><div class="container contact"><div><span class="eyebrow">值班室 24 小时亮灯，人员不一定醒着</span><h1>敲门请<br/>用力一点。</h1><p>发现价格过期、测试条件遗漏、链接失效或表达错误，欢迎提供页面地址和可核对的信息。</p><a class="button" href={`mailto:${site.email}`}>{site.email} →</a></div><aside><b>投递格式</b><ol><li>出问题的页面地址</li><li>具体哪句话或哪项数据</li><li>可核对的来源与日期</li><li>是否方便我们公开致谢</li></ol><small>商务合作请直接说明预算、形式与披露要求。要求“看起来像自发推荐”的合作，不用等回复。</small></aside></div></section>
+</BaseLayout>
+<style>
+  .contact{display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:center;min-height:65vh}h1{margin:15px 0;font-size:clamp(4rem,9vw,8rem);line-height:.85;letter-spacing:-.08em}.contact p{max-width:650px;font-size:1.15rem}.contact aside{padding:30px;border:var(--line);background:var(--pink);box-shadow:var(--shadow);transform:rotate(1deg)}.contact aside>b{font-size:1.7rem}.contact ol{padding-left:24px}.contact li{padding:7px 0;border-bottom:1px dashed}.contact small{display:block;margin-top:20px;font-weight:700}@media(max-width:700px){.contact{grid-template-columns:1fr}}
+</style>

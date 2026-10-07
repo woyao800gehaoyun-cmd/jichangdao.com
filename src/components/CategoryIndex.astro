@@ -1,0 +1,29 @@
+---
+import ArticleCard from './ArticleCard.astro';
+interface Props { title: string; eyebrow: string; description: string; tone: 'orange'|'lime'|'pink'|'blue'; entries: any[]; base: string; }
+const { title, eyebrow, description, tone, entries, base } = Astro.props;
+const sorted = [...entries].sort((a,b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
+---
+<header class={`category-hero ${tone}`}>
+  <div class="container">
+    <span class="eyebrow">{eyebrow}</span>
+    <h1>{title}</h1>
+    <p>{description}</p>
+    <div class="counter mono"><b>{String(entries.length).padStart(2,'0')}</b><span>份公开档案<br/>持续加料中</span></div>
+  </div>
+</header>
+<section class="section">
+  <div class="container">
+    <div class="filters mono"><span>快速筛选：</span><button class="active">全部</button><button>新手</button><button>预算党</button><button>流媒体</button><button>办公</button><small>※ 筛选交互可在接入更多内容后启用</small></div>
+    {sorted.length ? <div class="grid-3">{sorted.map(item => <ArticleCard href={`/${base}/${item.id}`} {...item.data} date={item.data.publishedDate} />)}</div> : <div class="empty-note">档案柜还空着，值班员正在追着数据跑。</div>}
+  </div>
+</section>
+
+<style>
+  .category-hero { position:relative; padding:72px 0 85px; border-bottom:var(--line); overflow:hidden; background:var(--orange); }
+  .category-hero.lime{background:var(--lime)}.category-hero.pink{background:var(--pink)}.category-hero.blue{background:var(--blue)}
+  .category-hero::after{content:'?';position:absolute;right:4vw;top:-140px;font:900 33rem/1 'IBM Plex Mono';opacity:.08;transform:rotate(8deg)}
+  h1{max-width:870px;margin:20px 0 18px;font-size:clamp(3.6rem,9vw,9rem);line-height:.86;letter-spacing:-.08em}p{max-width:700px;font-size:1.2rem;font-weight:600}.counter{position:absolute;right:9vw;bottom:60px;display:flex;align-items:center;gap:12px}.counter b{font-size:3.5rem;line-height:1}.counter span{font-size:.68rem;font-weight:700}
+  .filters{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:32px;padding-bottom:20px;border-bottom:1.5px dashed}.filters span{font-weight:700}.filters button{border:1.5px solid;border-radius:999px;background:transparent;padding:5px 10px;cursor:pointer;font-size:.72rem}.filters button.active{background:var(--ink);color:white}.filters small{margin-left:auto;color:var(--muted)}
+  @media(max-width:800px){.counter{position:static;margin-top:28px}.filters small{width:100%;margin-left:0}}
+</style>

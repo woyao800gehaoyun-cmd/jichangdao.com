@@ -1,0 +1,33 @@
+---
+import { nav, site } from '@/data/site';
+---
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>拒绝空气测速 • 拒绝复制粘贴 • 晚高峰见真章 • 套路先过安检 • </span><span>拒绝空气测速 • 拒绝复制粘贴 • 晚高峰见真章 • 套路先过安检 • </span><span>拒绝空气测速 • 拒绝复制粘贴 • 晚高峰见真章 • 套路先过安检 • </span><span>拒绝空气测速 • 拒绝复制粘贴 • 晚高峰见真章 • 套路先过安检 • </span></div></div>
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-logo">机场岛<span>!</span></div>
+      <p>把节点、套餐和营销话术统统送上安检机。<br />不保证世界安静，但保证测试有据可查。</p>
+    </div>
+    <div><b>登岛入口</b>{nav.slice(0,4).map(item => <a href={item.href}>{item.label}</a>)}</div>
+    <div><b>值班室</b><a href="/about">关于我们</a><a href="/contact">联系 / 勘误</a><a href="/privacy">隐私说明</a><a href="/feed.xml">RSS 订阅</a></div>
+    <div class="stamp"><span>NO<br/>AIR<br/>TEST</span><small>拒绝空气测评</small></div>
+  </div>
+  <div class="container bottom"><span>© {new Date().getFullYear()} {site.name}</span><span>信息仅供参考，请遵守所在地法律法规。</span></div>
+</footer>
+
+<style>
+  footer { background: var(--ink); color: var(--paper); padding: 66px 0 28px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 140px; gap: 50px; }
+  .footer-logo { font-size: 3rem; font-weight: 900; line-height: 1; letter-spacing: -.08em; }
+  .footer-logo span { color: var(--orange); }
+  footer p { color: #bdb8ae; }
+  footer b { display: block; margin-bottom: 12px; color: var(--lime); }
+  footer a { display: block; margin: 7px 0; color: #d9d4ca; font-size: .9rem; }
+  footer a:hover { color: var(--lime); }
+  .stamp { display: grid; place-items: center; align-content: center; aspect-ratio: 1; border: 3px solid var(--orange); border-radius: 50%; color: var(--orange); transform: rotate(-8deg); text-align: center; }
+  .stamp span { font: 900 1.5rem/1 'IBM Plex Mono',monospace; }
+  .stamp small { margin-top: 5px; font-weight: 800; font-size: .64rem; }
+  .bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 25px; margin-top: 50px; border-top: 1px solid #48453f; color: #8e8a82; font-size: .78rem; }
+  @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } .stamp { width: 120px; } }
+  @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } .bottom { flex-direction: column; } }
+</style>

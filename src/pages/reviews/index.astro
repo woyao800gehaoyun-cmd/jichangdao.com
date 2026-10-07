@@ -1,0 +1,9 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CategoryIndex from '@/components/CategoryIndex.astro';
+const entries = await getCollection('reviews');
+---
+<BaseLayout title="机场评测" description="基于价格、晚高峰稳定性、流媒体、客户端和售后的中文机场评测档案。">
+  <CategoryIndex title="荒野评测" eyebrow="不接受隔空把脉" description="不是打开测速网站按一下就收工。我们记录套餐规则、高峰波动、使用体验和售后表现，把结论写得能复查、能过期、也能被打脸。" tone="orange" entries={entries} base="reviews" />
+</BaseLayout>
