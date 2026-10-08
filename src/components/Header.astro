@@ -1,6 +1,14 @@
 ---
 import { nav, site } from '@/data/site';
 const pathname = Astro.url.pathname;
+const isActive = (href: string) => {
+  if (href === '/') return pathname === '/';
+  if (href === '/guides') {
+    const specificGuide = nav.some((item) => item.href !== '/guides' && item.href.startsWith('/guides/') && pathname.startsWith(item.href));
+    return pathname === '/guides' || (pathname.startsWith('/guides/') && !specificGuide);
+  }
+  return pathname.startsWith(href);
+};
 ---
 <header class="header">
   <div class="container nav-wrap">
@@ -9,9 +17,9 @@ const pathname = Astro.url.pathname;
       <span><b>机场岛</b><small class="mono">JICHANG DAO</small></span>
     </a>
     <nav class="desktop-nav" aria-label="主导航">
-      {nav.map((item) => <a class:list={{ active: pathname.startsWith(item.href) }} href={item.href}>{item.label}</a>)}
+      {nav.map((item) => <a class:list={{ active: isActive(item.href) }} href={item.href}>{item.label}</a>)}
     </nav>
-    <a class="random mono" href="/reviews/guangnianti-review">本期主推 ↗</a>
+    <a class="random mono" href="/reviews/guangnianti-review">光年梯推荐 ↗</a>
     <details class="mobile-menu">
       <summary aria-label="打开导航">菜单</summary>
       <nav>{nav.map((item) => <a href={item.href}>{item.label}</a>)}</nav>
@@ -21,18 +29,18 @@ const pathname = Astro.url.pathname;
 
 <style>
   .header { position: sticky; top: 0; z-index: 50; border-bottom: var(--line); background: color-mix(in srgb, var(--paper) 91%, transparent); backdrop-filter: blur(12px); }
-  .nav-wrap { height: 74px; display: flex; align-items: center; gap: 25px; }
+  .nav-wrap { height: 74px; display: flex; align-items: center; gap: 18px; }
   .logo { display: flex; align-items: center; gap: 9px; margin-right: auto; line-height: 1; }
   .logo-mark { display: grid; place-items: center; width: 38px; height: 38px; border: var(--line); border-radius: 50% 50% 43% 57%; background: var(--lime); font-size: 1.25rem; font-weight: 900; transform: rotate(-7deg); }
   .logo b { font-size: 1.16rem; letter-spacing: -.08em; }
   .logo small { display: block; margin-top: 4px; font-size: .58rem; letter-spacing: .08em; }
   .desktop-nav { display: flex; gap: 4px; }
-  .desktop-nav a { padding: 8px 10px; font-size: .9rem; font-weight: 700; border-radius: 999px; }
+  .desktop-nav a { padding: 8px 9px; font-size: .88rem; font-weight: 700; border-radius: 999px; white-space: nowrap; }
   .desktop-nav a:hover, .desktop-nav a.active { background: var(--ink); color: var(--paper); }
   .random { padding: 8px 12px; border: 1.5px dashed; font-size: .75rem; font-weight: 700; transform: rotate(1.5deg); background: var(--pink); }
   .mobile-menu { display: none; position: relative; }
   .mobile-menu summary { cursor: pointer; list-style: none; border: var(--line); padding: 7px 10px; font-weight: 800; background: var(--lime); }
   .mobile-menu nav { position: absolute; right: 0; top: 45px; width: 190px; border: var(--line); background: var(--paper); box-shadow: var(--shadow); padding: 8px; }
   .mobile-menu nav a { display: block; padding: 10px; border-bottom: 1px dashed; font-weight: 700; }
-  @media (max-width: 940px) { .desktop-nav,.random { display: none; } .mobile-menu { display: block; } }
+  @media (max-width: 1120px) { .desktop-nav,.random { display: none; } .mobile-menu { display: block; } }
 </style>

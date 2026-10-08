@@ -7,9 +7,11 @@ export const site = {
 };
 
 export const nav = [
-  { href: '/reviews', label: '荒野评测' },
-  { href: '/compare', label: '擂台对比' },
-  { href: '/guides', label: '逃生教程' },
-  { href: '/brands', label: '品牌档案' },
-  { href: '/topics', label: '专题雷达' }
+  { href: '/', label: '首页' },
+  { href: '/guides/2026-airport-recommendations', label: '机场推荐' },
+  { href: '/reviews', label: '机场测评' },
+  { href: '/compare', label: '机场对比' },
+  { href: '/guides', label: '机场教程' },
+  { href: '/guides/airport-navigation-directory', label: '机场导航' },
+  { href: '/brands', label: '机场品牌' }
 ];
