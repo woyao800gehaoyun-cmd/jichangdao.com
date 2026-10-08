@@ -13,7 +13,11 @@ const articleSchema = z.object({
   readingMinutes: z.number().int().positive().default(6),
   score: z.number().min(0).max(10).optional(),
   verdict: z.string().optional(),
-  accent: z.enum(['orange', 'lime', 'pink', 'blue']).default('orange')
+  accent: z.enum(['orange', 'lime', 'pink', 'blue']).default('orange'),
+  affiliateUrl: z.url().optional(),
+  coupon: z.string().optional(),
+  offer: z.string().optional(),
+  primaryPick: z.boolean().default(false)
 });
 
 export const collections = {

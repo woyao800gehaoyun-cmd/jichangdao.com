@@ -11,7 +11,7 @@ const pathname = Astro.url.pathname;
     <nav class="desktop-nav" aria-label="主导航">
       {nav.map((item) => <a class:list={{ active: pathname.startsWith(item.href) }} href={item.href}>{item.label}</a>)}
     </nav>
-    <a class="random mono" href="/reviews/rocket-duck-review">随机安检 ↗</a>
+    <a class="random mono" href="/reviews/guangnianti-review">本期主推 ↗</a>
     <details class="mobile-menu">
       <summary aria-label="打开导航">菜单</summary>
       <nav>{nav.map((item) => <a href={item.href}>{item.label}</a>)}</nav>
