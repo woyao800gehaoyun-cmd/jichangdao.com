@@ -50,5 +50,13 @@ export const brands: Brand[] = [
     affiliateUrl: 'https://kunpengjiasu.com/#/register?code=Yd7XpCEQ', reviewUrl: '/reviews/kunpeng-review', primary: false, color: '#ff90c8',
     strengths: ['12 元月付，试错成本较低', '直连线路结构简单，适合轻量日常使用', '适合作为入门或备用方案比较'],
     cautions: ['直连线路在晚高峰更依赖本地运营商与拥堵情况', '当前暂无可提供的优惠码']
+  },
+  {
+    slug: 'bianjiecloud', name: '边界云', alias: '15 元月付待测选手',
+    summary: '月付 15 元的机场方案，价格处于本站当前推荐列表的入门档，流量、线路与客户端支持需在购买前以官网实时页面为准。',
+    score: 7.8, status: '档案更新', bestFor: '预算型月付 / 新用户试用', price: '¥ 15 / 月', traffic: '以官网为准', lineType: '以官网为准', coupon: '暂无公开优惠码',
+    affiliateUrl: 'https://www.bianjiecloud.com/r/GCYFYL', reviewUrl: '/reviews/bianjiecloud-review', primary: false, color: '#a992ff',
+    strengths: ['15 元月付，入门成本相对容易控制', '月付方式便于先短期测试再决定是否续费', '可作为 12 元直连与 18 元专线套餐之间的价格备选'],
+    cautions: ['当前仅确认月付价格，流量、线路、节点和设备限制需以官网为准', '本站尚在持续复测，不应仅凭价格决定长期购买']
   }
 ];
